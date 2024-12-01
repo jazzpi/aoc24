@@ -1,12 +1,12 @@
 use std::fs;
 
-pub fn get_input_filename() -> String {
+pub fn get_args() -> (String, u32) {
     let args: Vec<String> = std::env::args().collect();
-    if args.len() != 2 {
-        eprintln!("Usage: {} <input file>", args[0]);
+    if args.len() != 3 {
+        eprintln!("Usage: {} <input file> <part>", args[0]);
         std::process::exit(1);
     }
-    args[1].clone()
+    (args[1].clone(), args[2].parse().unwrap())
 }
 
 pub fn read_input(filename: &str) -> String {
