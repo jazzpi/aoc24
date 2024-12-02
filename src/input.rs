@@ -33,7 +33,20 @@ pub fn read_input_2col(filename: &str) -> (Vec<i32>, Vec<i32>) {
     (col1, col2)
 }
 
-pub fn check_testcase(day: u32, part: u32) -> Option<(String, i32)> {
+pub fn read_input_lines_spaces(filename: &str) -> Vec<Vec<i64>> {
+    let contents = read_input(filename);
+    let mut lines = Vec::new();
+    for line in contents.lines() {
+        let mut nums = Vec::new();
+        for num in line.split_whitespace() {
+            nums.push(num.parse().unwrap());
+        }
+        lines.push(nums);
+    }
+    lines
+}
+
+pub fn check_testcase(day: u32, part: u32) -> Option<(String, i64)> {
     let input_filename = format!("day{}", day);
     let input_path = format!("input/{}", input_filename);
     let output_path = format!("results/day{}p{}", day, part);

@@ -1,4 +1,4 @@
-pub fn part1(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i32 {
+pub fn part1(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i64 {
     assert_eq!(col1.len(), col2.len());
     // Sort each column
     col1.sort();
@@ -8,10 +8,10 @@ pub fn part1(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i32 {
     for i in 0..col1.len() {
         sum += (col1[i] - col2[i]).abs();
     }
-    sum
+    sum.into()
 }
 
-pub fn part2(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i32 {
+pub fn part2(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i64 {
     assert_eq!(col1.len(), col2.len());
     // The naive solution (iterating through the right column for each element
     // in the left column) would be O(n^2), or at least O(n_unique * n). By
@@ -45,7 +45,7 @@ pub fn part2(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> i32 {
         }
     }
 
-    sum
+    sum.into()
 }
 
 #[cfg(test)]
