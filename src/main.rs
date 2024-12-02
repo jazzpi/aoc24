@@ -34,8 +34,7 @@ fn main() {
             if part == 1 {
                 day2::part1(&reports)
             } else {
-                eprintln!("Day 2 part 2 not implemented");
-                std::process::exit(1);
+                day2::part2(&reports)
             }
         }
         _ => {
